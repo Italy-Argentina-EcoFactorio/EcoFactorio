@@ -5,16 +5,20 @@ using UnityEngine;
 public class Tile
 {
     public enum TileType {empty,room}
-    protected TileType type;
-    protected GameObject go;
-    protected Grid grid;
+    TileType type;
+    GameObject go;
+    Grid grid;
 
     protected int x, y;
 
-    public Tile(Grid grid,int x,int y)
+    public Tile(Grid grid,int x,int y, GameObject go)
     {
         this.grid = grid;
         this.x = x;
         this.y = y;
+        type = TileType.empty;
+        this.go = go;
     }
+    
+    
 }
