@@ -35,12 +35,12 @@ public class Grid
 
     public void setTileAt(Tile tile, int x, int y)
     {
+        if (tile == null) Debug.LogError("cannot set null tile");
         if (x > width || y > height || y < 0 || x < 0)
         {
             Debug.LogError("Tile [" + x + ", " + y + "] is out of range");
         }
-        if (tile == null) Debug.LogError("cannot set null tile");
-        tiles[x, y] = tile;
+        tiles[x,y] = tile;
     }
 
     public int getWidth() { return width; }

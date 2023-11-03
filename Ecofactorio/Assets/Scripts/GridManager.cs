@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -30,8 +31,10 @@ public class GridManager : MonoBehaviour
             {
                 //instantiate the tile
                 grid.getTileAt(i, j).setGO(Instantiate(backgroundTile));
-                //position the tile
-                grid.getTileAt(i,j).getGO().transform.Translate(2*j, 2*i,0);
+                //make the tile go a parent of the grid manager and keeps it's attributes invarieted
+                grid.getTileAt(i, j).getGO().transform.SetParent(this.transform,true);
+                //position the tile using absolute coordinates
+                grid.getTileAt(i, j).getGO().transform.Translate(2 * j, 2 * i, 0, Space.World);
             }
         }
     }

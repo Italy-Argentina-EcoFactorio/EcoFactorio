@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Tile
 {
-    enum TileType {empty,emptyRoom,room}
-    TileType type;
     GameObject go;
     Grid grid;
 
@@ -16,17 +14,16 @@ public class Tile
         this.grid = grid;
         this.x = x;
         this.y = y;
-        type= TileType.empty;
-    }
-
-    public void setGO(GameObject go) 
-    {
-        this.go = go;
     }
 
     public GameObject getGO()
     {
-        return this.go; 
+        //Debug.Log("Tile returned");
+        return go; 
     }
-    
+    public void setGO(GameObject go) 
+    {
+        //Debug.Log("Tile setted");
+        this.go = go;
+    }
 }
