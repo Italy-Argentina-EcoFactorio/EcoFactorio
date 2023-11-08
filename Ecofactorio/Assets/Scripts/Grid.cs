@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Grid
 {
-    protected int width, height;
-    protected Tile[,] tiles;
-
+    int width, height;
+    public Tile[,] tiles;
+    
 
     public Grid(int width, int height) 
     {
@@ -20,8 +20,7 @@ public class Grid
             for (int j = 0; j < height; j++)
             {
                 tiles[i, j] = new Tile(this, i, j);
-            }
-                
+            }    
         }
     }
 
@@ -30,8 +29,23 @@ public class Grid
         if(x>width||y>height||y<0||x<0)
         {
             Debug.LogError("Tile [" + x + ", " + y + "] is out of range");
-        };
+        }
         return tiles[x,y];
     }
+
+    public void setTileAt(Tile tile, int x, int y)
+    {
+        if (tile == null) Debug.LogError("cannot set null tile");
+        if (x > width || y > height || y < 0 || x < 0)
+        {
+            Debug.LogError("Tile [" + x + ", " + y + "] is out of range");
+        }
+        tiles[x,y] = tile;
+    }
+
+    public int getWidth() { return width; }
+    public int getHeight() { return height; }
+
+    
 
 }
