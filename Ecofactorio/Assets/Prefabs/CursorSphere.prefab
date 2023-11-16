@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7264233482316971415}
   - component: {fileID: 4451913911742306636}
   - component: {fileID: 7140740685301907869}
-  - component: {fileID: -2619260167113948858}
+  - component: {fileID: 3471448181392767077}
   m_Layer: 0
   m_Name: CursorSphere
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4451913911742306636
 MeshFilter:
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-2619260167113948858
+--- !u!114 &3471448181392767077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5382422522662579793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c42cb56f0d520e4fbbbf1cf0958a955, type: 3}
+  m_Script: {fileID: 11500000, guid: 99b99ad1fa8bfe34ab08fc601af6729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  outline: {fileID: 2100000, guid: 283f0cc6fa33aa24c94d96d326389540, type: 2}
+  outline: {fileID: 0}

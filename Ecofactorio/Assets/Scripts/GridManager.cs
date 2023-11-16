@@ -13,13 +13,12 @@ public class GridManager : MonoBehaviour
     {
         grid = new Grid(gridWidth,gridHeight);
         instantiateGrid();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void instantiateGrid()
