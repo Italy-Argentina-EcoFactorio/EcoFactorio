@@ -1,20 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
+    [SerializeField] private String menuName;
+    private void Start()
+    {
+        doorSelection = GameObject.Find(menuName);
+    }
     // Update is called once per frame
     void Update()
     {
         moveMouse();
+        if(Input.GetMouseButtonDown(0))
+        {
+            clickSum++;
+            if(clickSum>2 ) clickSum = 1;
+            if(clickSum==1 ) firstClickTime = Time.time;
+        }
     }
 
 
     //[SerializeField] means that i can drag and drop a camera from the unity interface
     //main camera is just the camera use to view the game
     [SerializeField] private Camera mainCamera;
-
+    
 
     //manages inputs and mouse position
     private void moveMouse()
@@ -31,11 +44,36 @@ public class MouseController : MonoBehaviour
             transform.position = raycastHit.point;
 
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0)&&!menu)
             {
                 applyOutline(raycastHit.collider);
             }
+            if (detectDoubleClick()) 
+            {
+                callRoomSelectionMenu();
+            }
+               
+             
+            
+        
+
         }
+    }
+
+    private int clickSum = 0;
+    private float firstClickTime, timeBetweenClicks = 0.5f;
+    private bool detectDoubleClick()
+    {
+        if(Time.time < firstClickTime+timeBetweenClicks)
+        {
+            if(clickSum>=2)
+            {
+                clickSum = 0;
+                Debug.Log("double click detected");
+                return true; 
+            }
+        }
+        return false;
     }
 
 
@@ -74,5 +112,14 @@ public class MouseController : MonoBehaviour
                 lastCollision.GetComponent<MeshRenderer>().material = outline;
             }
         }
+    }
+
+
+    public bool menu = false;
+    private GameObject doorSelection;
+    private void callRoomSelectionMenu()
+    {
+        menu = true;
+        doorSelection.SetActive(true);
     }
 }

@@ -7,11 +7,11 @@ public class GridManager : MonoBehaviour
 {
     public Grid grid;
     public GameObject backgroundTile;
-    public int gridWidth,gridHeight;
+    public int gridHeight,gridLenght;
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid(gridWidth,gridHeight);
+        grid = new Grid(gridHeight,gridLenght);
         instantiateGrid();
     }
 
@@ -24,9 +24,9 @@ public class GridManager : MonoBehaviour
     void instantiateGrid()
     {
         //these 2 for loops will instantiate the background tiles and give them the right placement
-        for (int i = 0; i < grid.getWidth(); i++)
+        for (int i = 0; i < grid.getHeight(); i++)
         {
-            for (int j = 0; j < grid.getHeight(); j++)
+            for (int j = 0; j < grid.getLenght(); j++)
             {
                 //instantiate the tile
                 grid.getTileAt(i, j).setGO(Instantiate(backgroundTile));

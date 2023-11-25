@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Grid
 {
-    int width, height;
+    int height, lenght;
     public Tile[,] tiles;
     
 
-    public Grid(int width, int height) 
+    public Grid(int height, int lenght) 
     {
-        this.width = width;
         this.height = height;
-        tiles = new Tile[width, height];
+        this.lenght = lenght;
+        tiles = new Tile[height, lenght];
 
         //instantiates the matrix
-        for (int i = 0; i < width; i++) 
+        for (int i = 0; i < height; i++) 
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < lenght; j++)
             {
                 tiles[i, j] = new Tile(this, i, j);
             }    
@@ -26,7 +26,7 @@ public class Grid
 
     public Tile getTileAt(int x, int y) 
     {
-        if(x>width||y>height||y<0||x<0)
+        if(x>height||y>lenght||y<0||x<0)
         {
             Debug.LogError("Tile [" + x + ", " + y + "] is out of range");
         }
@@ -36,15 +36,15 @@ public class Grid
     public void setTileAt(Tile tile, int x, int y)
     {
         if (tile == null) Debug.LogError("cannot set null tile");
-        if (x > width || y > height || y < 0 || x < 0)
+        if (x > height || y > lenght || y < 0 || x < 0)
         {
             Debug.LogError("Tile [" + x + ", " + y + "] is out of range");
         }
         tiles[x,y] = tile;
     }
 
-    public int getWidth() { return width; }
     public int getHeight() { return height; }
+    public int getLenght() { return lenght; }
 
     
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3471448181392767077}
   m_Layer: 0
   m_Name: CursorSphere
-  m_TagString: Untagged
+  m_TagString: Cursor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,5 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b99ad1fa8bfe34ab08fc601af6729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: 0
   mainCamera: {fileID: 0}
-  outline: {fileID: 0}
+  outline: {fileID: 2100000, guid: 08a6a042cb898df4e86490467ff23c44, type: 2}
