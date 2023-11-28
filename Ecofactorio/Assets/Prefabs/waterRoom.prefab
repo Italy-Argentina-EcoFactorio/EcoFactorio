@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8244aac995b04594ca2c22e8637aea9a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8244aac995b04594ca2c22e8637aea9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.942609
+      value: -0.057391405
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8244aac995b04594ca2c22e8637aea9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.83955
+      value: -0.16044986
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8244aac995b04594ca2c22e8637aea9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8772469
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8244aac995b04594ca2c22e8637aea9a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ee613b0c54f9f2a4284b80ce6a589c70, type: 2}
     - target: {fileID: 919132149155446097, guid: 8244aac995b04594ca2c22e8637aea9a, type: 3}
       propertyPath: m_Name
-      value: waterRoom Variant
+      value: waterRoom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

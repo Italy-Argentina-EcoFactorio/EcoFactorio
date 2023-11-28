@@ -24,23 +24,23 @@ public class Grid
         }
     }
 
-    public Tile getTileAt(int x, int y) 
+    public Tile getTileAt(int i, int j) 
     {
-        if(x>height||y>lenght||y<0||x<0)
+        if(i>height||j>lenght||j<0||i<0)
         {
-            Debug.LogError("Tile [" + x + ", " + y + "] is out of range");
+            Debug.LogError("Tile [" + i + ", " + j + "] is out of range");
         }
-        return tiles[x,y];
+        return tiles[i,j];
     }
 
-    public void setTileAt(Tile tile, int x, int y)
+    public void setTileAt(Tile tile, int i, int j)
     {
         if (tile == null) Debug.LogError("cannot set null tile");
-        if (x > height || y > lenght || y < 0 || x < 0)
+        if (i > height || j > lenght || j < 0 || i < 0)
         {
-            Debug.LogError("Tile [" + x + ", " + y + "] is out of range");
+            Debug.LogError("Tile [" + i + ", " + j + "] is out of range");
         }
-        tiles[x,y] = tile;
+        tiles[i,j] = tile;
     }
 
     public int getHeight() { return height; }

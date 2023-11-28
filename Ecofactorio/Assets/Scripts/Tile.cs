@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Tile
 {
     GameObject go;
     Grid grid;
 
-    protected int x, y;
+    protected int i, j;
 
-    public Tile(Grid grid,int x,int y)
+    public Tile(Grid grid,int i,int j)
     {
         this.grid = grid;
-        this.x = x;
-        this.y = y;
+        this.i = i;
+        this.j = j;
+    }
+
+    public Tile(Grid grid, int i, int j, GameObject go)
+    {
+        this.grid = grid;
+        this.i = i;
+        this.j = j;
+        this.go = go;
     }
 
     public GameObject getGO()

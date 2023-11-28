@@ -61,14 +61,14 @@ public class MouseController : MonoBehaviour
     }
 
     private int clickSum = 0;
-    private float firstClickTime, timeBetweenClicks = 0.5f;
+    public float firstClickTime, timeBetweenClicks = 0.2f;
     private bool detectDoubleClick()
     {
         if(Time.time < firstClickTime+timeBetweenClicks)
         {
             if(clickSum>=2)
             {
-                clickSum = 0;
+                clickSum = 1;
                 Debug.Log("double click detected");
                 return true; 
             }
@@ -81,7 +81,6 @@ public class MouseController : MonoBehaviour
     private Material originalMaterial;
     private GameObject lastCollision;
     private bool pressed = false; //it's made to understand if the first object has been clicked
-    
     private void applyOutline(Collider collision) 
     {
         if (!pressed)
@@ -94,6 +93,7 @@ public class MouseController : MonoBehaviour
 
                 //apply the outline 
                 lastCollision.GetComponent<MeshRenderer>().material = outline;
+                clickSum = 0;
             }
             pressed = true;
         }
@@ -113,6 +113,13 @@ public class MouseController : MonoBehaviour
             }
         }
     }
+
+   public GameObject getOulined()
+   {
+        return lastCollision;
+   }
+   
+    public void resetSelection() { pressed = false; }
 
 
     public bool menu = false;

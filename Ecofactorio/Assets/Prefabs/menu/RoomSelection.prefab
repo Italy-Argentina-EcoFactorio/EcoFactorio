@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 6995323023825188539}
   - component: {fileID: 7465495444001691940}
   - component: {fileID: 2185962695926308669}
+  - component: {fileID: 5063128813664536065}
   m_Layer: 5
   m_Name: RoomSelection
   m_TagString: Untagged
@@ -361,6 +362,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5063128813664536065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2815234137649195612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7119ccf7e2f691349914440909258469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 0}
 --- !u!1 &9048900700200449373
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,16 +497,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5063128813664536065}
+        m_TargetAssemblyTypeName: roomSelectionController, Assembly-CSharp
+        m_MethodName: dismiss
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: dismiss
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &9108707958755045260
@@ -525,7 +539,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7374539837213762331}
-  - {fileID: 3239116096631575713}
+  - {fileID: 4151032285890500830}
   - {fileID: 1618638323095432146}
   m_Father: {fileID: 2100507439247793466}
   m_RootOrder: -1
@@ -681,7 +695,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3239116096631575713}
+    m_TransformParent: {fileID: 4151032285890500830}
     m_Modifications:
     - target: {fileID: 7196341725218821499, guid: 4551cb75b04235c4e9e09f1111f5a099, type: 3}
       propertyPath: m_RootOrder
@@ -962,7 +976,7 @@ PrefabInstance:
       addedObject: {fileID: 5544022787913881996}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b9084f64f5572e4d89149a1b1ce9b4c, type: 3}
---- !u!224 &3239116096631575713 stripped
+--- !u!224 &4151032285890500830 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8041827721206830354, guid: 7b9084f64f5572e4d89149a1b1ce9b4c, type: 3}
   m_PrefabInstance: {fileID: 6197272403194826188}
