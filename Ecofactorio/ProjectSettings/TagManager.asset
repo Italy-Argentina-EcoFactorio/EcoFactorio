@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cursor
+  - Background
   layers:
   - Default
   - TransparentFX

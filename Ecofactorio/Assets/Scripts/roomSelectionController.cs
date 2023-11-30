@@ -33,7 +33,13 @@ public class roomSelectionController : MonoBehaviour
 
                     newRoom = Instantiate(newRoom);
                     gridManager.grid.setTileAt(new Tile(gridManager.grid, i,j,newRoom),i,j);
-                    gridManager.grid.getTileAt(i, j).getGO().transform.position = new Vector3(2 * j-0.05739141f, 2 * i-0.1604499f, 0);
+                    if (gridManager.grid.getTileAt(i, j).getGO().CompareTag("Background"))
+                    { 
+                        gridManager.grid.getTileAt(i, j).getGO().transform.position = new Vector3(2 * j, 2 * i, 0);
+                    }else
+                    {
+                        gridManager.grid.getTileAt(i, j).getGO().transform.position = new Vector3(2 * j - 0.05739141f, 2 * i - 0.1604499f, 0); 
+                    }
                     newRoom.transform.SetParent(gridManager.transform,true);
                     
                     dismiss();
