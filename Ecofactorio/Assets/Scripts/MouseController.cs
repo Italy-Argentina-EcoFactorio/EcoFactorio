@@ -10,24 +10,25 @@ public class MouseController : MonoBehaviour
     private void Start()
     {
         doorSelection = GameObject.Find(menuName);
+        // roomManagementUI = GameObject.Find()
     }
+
     // Update is called once per frame
     void Update()
     {
         moveMouse();
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             clickSum++;
-            if(clickSum>2 ) clickSum = 1;
-            if(clickSum==1 ) firstClickTime = Time.time;
+            if (clickSum > 2) clickSum = 1;
+            if (clickSum == 1) firstClickTime = Time.time;
         }
     }
-
 
     //[SerializeField] means that i can drag and drop a camera from the unity interface
     //main camera is just the camera use to view the game
     [SerializeField] private Camera mainCamera;
-    
+
 
     //manages inputs and mouse position
     private void moveMouse()
@@ -44,13 +45,14 @@ public class MouseController : MonoBehaviour
             transform.position = raycastHit.point;
 
 
-            if (Input.GetMouseButtonDown(0)&&!menu)
+            if (Input.GetMouseButtonDown(0) && !menu)
             {
                 applyOutline(raycastHit.collider);
             }
-            if (detectDoubleClick()) 
+            if (detectDoubleClick())
             {
                 callRoomSelectionMenu();
+                callRoomManagement();
             }
         }
     }
@@ -59,13 +61,13 @@ public class MouseController : MonoBehaviour
     public float firstClickTime, timeBetweenClicks = 0.2f;
     private bool detectDoubleClick()
     {
-        if(Time.time < firstClickTime+timeBetweenClicks)
+        if (Time.time < firstClickTime + timeBetweenClicks)
         {
-            if(clickSum>=2)
+            if (clickSum >= 2)
             {
                 clickSum = 1;
                 Debug.Log("double click detected");
-                return true; 
+                return true;
             }
         }
         return false;
@@ -76,7 +78,7 @@ public class MouseController : MonoBehaviour
     private Material originalMaterial;
     private GameObject lastCollision;
     private bool pressed = false; //it's made to understand if the first object has been clicked
-    private void applyOutline(Collider collision) 
+    private void applyOutline(Collider collision)
     {
         if (!pressed)
         {
@@ -109,11 +111,11 @@ public class MouseController : MonoBehaviour
         }
     }
 
-   public GameObject getOulined()
-   {
+    public GameObject getOulined()
+    {
         return lastCollision;
-   }
-   
+    }
+
     public void resetSelection() { pressed = false; }
 
 
@@ -123,5 +125,12 @@ public class MouseController : MonoBehaviour
     {
         menu = true;
         doorSelection.SetActive(true);
+    }
+
+    private GameObject roomManagementUI;
+    private void callRoomManagement()
+    {
+        menu = true;
+        roomManagementUI.SetActive(true);
     }
 }

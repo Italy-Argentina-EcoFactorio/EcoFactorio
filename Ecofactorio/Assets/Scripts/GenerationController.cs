@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GeneratorController : MonoBehaviour
 {
-    private int baselvl = 1;
+    private int _baselvl = 1;
+    [SerializeField]
+    private int _workersInBuilding;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,22 +28,22 @@ public class GeneratorController : MonoBehaviour
 
     IEnumerator energyGenerator()
     {
-        yield return new WaitForSeconds(5);
-        statcon.totalEnergy += 10*baselvl;
+        yield return new WaitForSeconds(.2f);
+        statcon.totalEnergy += 1*_baselvl*_workersInBuilding;
         StartCoroutine(energyGenerator());
     }
 
     IEnumerator foodGenerator()
     {
-        yield return new WaitForSeconds(5);
-        statcon.totalFood += 10*baselvl;
+        yield return new WaitForSeconds(.2f);
+        statcon.totalFood += 1*_baselvl*_workersInBuilding;
         StartCoroutine(foodGenerator());
     }
 
     IEnumerator waterGenerator()
     {
-        yield return new WaitForSeconds(5);
-        statcon.totalWater += 10*baselvl;
+        yield return new WaitForSeconds(.2f);
+        statcon.totalWater += 1*_baselvl*_workersInBuilding;
         StartCoroutine(energyGenerator());
     }
 }

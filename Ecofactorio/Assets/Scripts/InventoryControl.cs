@@ -9,12 +9,6 @@ public class InventoryControl : MonoBehaviour
     public static int currentWeight;
 
     public static bool isOverencumberd { get { return currentWeight >= maxWeight; } }
-    public struct resources 
-    {
-        public int energy;
-        public int food;
-        public int electricity;
-    }
 
     public static void AddResource(/*Something to decide which resource to pick, "int addWeight"*/)
     { 
