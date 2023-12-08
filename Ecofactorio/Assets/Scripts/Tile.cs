@@ -27,12 +27,16 @@ public class Tile
 
     public GameObject getGO()
     {
-        //Debug.Log("Tile returned");
+        //Debug.Log("Tile GO returned");
         return go; 
     }
     public void setGO(GameObject go) 
     {
-        //Debug.Log("Tile setted");
+        //Debug.Log("Tile GO setted");
         this.go = go;
     }
+    public int getI() { return i; }
+    public int getJ() { return j; }
+    public void setI(int i) {  this.i = i; }
+    public void setJ(int j) {  this.j = j; }
 }

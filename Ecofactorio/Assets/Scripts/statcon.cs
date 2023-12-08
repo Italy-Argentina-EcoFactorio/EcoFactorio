@@ -11,6 +11,6 @@ public class statcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(totalEnergy + " " + totalFood + " " + totalWater);
+        //Debug.Log(totalEnergy + " " + totalFood + " " + totalWater);
     }
 }

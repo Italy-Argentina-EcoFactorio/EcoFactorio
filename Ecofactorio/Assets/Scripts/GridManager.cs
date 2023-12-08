@@ -15,12 +15,6 @@ public class GridManager : MonoBehaviour
         instantiateGrid();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void instantiateGrid()
     {
         //these 2 for loops will instantiate the background tiles and give them the right placement
@@ -30,12 +24,24 @@ public class GridManager : MonoBehaviour
             {
                 //instantiate the tile
                 grid.getTileAt(i, j).setGO(Instantiate(backgroundTile));
-                //make the tile go a parent of the grid manager and keeps it's attributes invarieted
+                //make the tile GO a parent of the grid manager and keeps it's attributes invarieted
                 grid.getTileAt(i, j).getGO().transform.SetParent(this.transform,true);
                 //position the tile using absolute coordinates
                 grid.getTileAt(i, j).getGO().transform.Translate(2 * j, 2 * i, 0, Space.World);
             }
         }
+    }
+
+    public Tile findTileByGO(GameObject key)
+    {
+        for (int i = 0; i < grid.getHeight(); i++)
+        {
+            for (int j = 0; j < grid.getLenght(); j++)
+            {
+                if(grid.getTileAt(i, j).getGO()==key) return grid.getTileAt(i, j);
+            }
+        }
+        return null;
     }
 
 }

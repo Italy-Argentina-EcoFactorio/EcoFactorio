@@ -22,32 +22,30 @@ public class roomSelectionController : MonoBehaviour
 
     public void changeRoom(GameObject newRoom) 
     {
-        for(int i=0;i<gridManager.grid.getHeight();i++) 
+        //selected GO
+        GameObject outlined = cursor.GetComponent<MouseController>().getOulined();
+        //Tile of the grid to modify
+        Tile old = gridManager.findTileByGO(outlined);
+        if( old != null )
         {
-            for (int j = 0;j < gridManager.grid.getLenght();j++)
-            {
-                if(cursor.GetComponent<MouseController>().getOulined().Equals(gridManager.grid.getTileAt(i,j).getGO()))
-                { 
-                    Destroy(cursor.GetComponent<MouseController>().getOulined());
-                    cursor.GetComponent<MouseController>().resetSelection();
+            Destroy(outlined);
+            cursor.GetComponent<MouseController>().resetSelection();
+            newRoom = Instantiate(newRoom);
 
-                    newRoom = Instantiate(newRoom);
-                    gridManager.grid.setTileAt(new Tile(gridManager.grid, i,j,newRoom),i,j);
-                    if (gridManager.grid.getTileAt(i, j).getGO().CompareTag("Background"))
-                    { 
-                        gridManager.grid.getTileAt(i, j).getGO().transform.position = new Vector3(2 * j, 2 * i, 0);
-                    }else
-                    {
-                        gridManager.grid.getTileAt(i, j).getGO().transform.position = new Vector3(2 * j - 0.05739141f, 2 * i - 0.1604499f, 0); 
-                    }
-                    newRoom.transform.SetParent(gridManager.transform,true);
-                    
-                    dismiss();
-                    return;
-                }
+            //this if positions the tile correctly
+            if (newRoom.CompareTag("Background"))
+            {
+                newRoom.transform.position = new Vector3(2 * old.getJ(), 2 * old.getI(), 0);
             }
-        }
-        
+            else
+            {
+                newRoom.transform.position = new Vector3(2 * old.getJ() - 0.05739141f, 2 * old.getI() - 0.1604499f, 0);
+            }
+            //set the GO of the tile to the new room
+            old.setGO(newRoom);
+            //close the menù
+            dismiss();
+        }   
     }
 
 }

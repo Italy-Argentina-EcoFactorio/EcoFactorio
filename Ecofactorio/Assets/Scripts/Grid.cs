@@ -39,6 +39,7 @@ public class Grid
         if (i > height || j > lenght || j < 0 || i < 0)
         {
             Debug.LogError("Tile [" + i + ", " + j + "] is out of range");
+            return;
         }
         tiles[i,j] = tile;
     }
